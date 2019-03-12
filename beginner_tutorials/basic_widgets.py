@@ -4,11 +4,12 @@ Overview of most common Widgets
 
 import sys
 from PyQt5.QtWidgets import *
-from PyQt5 import QtCore
+from PyQt5 import QtCore, QtGui
 
 
 class WidgetsOverview(QMainWindow):
     def __init__(self, app):
+        # Initialize parent without knowing its name
         super().__init__()
 
         self._app = app
@@ -48,6 +49,7 @@ class WidgetsOverview(QMainWindow):
         # QSpinBox
         label = QLabel("QSpinBox")
         spin_box = QSpinBox()
+        spin_box.setRange(0, 10)
         form.addRow(label, spin_box)
 
         # QSlider Widget
@@ -63,7 +65,9 @@ class WidgetsOverview(QMainWindow):
         # QMenuBar, QMenu & QAction
         # No need to layout a menubar. It automatically sets its own geometry
         # to the top of the parent widget and changes it appropriately
-        # whenever the parent is resized.
+        # whenever the parent is resized. 
+        # Note that the only action
+        # connected to any of these buttons is to exit the program
         menu = self.menuBar()
         file_menu = menu.addMenu("File")
 
@@ -81,9 +85,19 @@ class WidgetsOverview(QMainWindow):
         file_menu.addAction(file_quit)
         file_menu.triggered[QAction].connect(self.close)
 
+        # QToolBar
+        # Can pass fallback into fromTheme as well if available
+        # Note that no actions are assigned to these buttons
+        toolbar = self.addToolBar("File")
+
+        new = QAction(QtGui.QIcon.fromTheme("new"), "new", self)
+        toolbar.addAction(new)
+
+        save = QAction(QtGui.QIcon.fromTheme("save"), "save", self)
+        toolbar.addAction(save)
+
         win.setLayout(form)
         win.setWindowTitle("Widget Summary")
-
 
 def main():
     app = QApplication(sys.argv)

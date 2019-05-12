@@ -1,0 +1,12 @@
+{
+    // Anaconda Settings
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "python.dataScience.changeDirOnImportExport": false,
+    "terminal.integrated.shellArgs.windows": [
+        "/K",
+        "C:\\Users\\keith\\my_documents\\Anaconda3\\Scripts\\activate.bat",
+        "C:\\Users\\keith\\my_documents\\Anaconda3"
+    ],
+    "python.formatting.provider": "yapf",
+}

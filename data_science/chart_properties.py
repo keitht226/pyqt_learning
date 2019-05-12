@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 # exclusive of endpoint.
 x = np.arange(0,10)
 y = x ^ 2
+z = x ^ 3
+t = x ^ 4
 
 # Label title and axes
 plt.title("Graph Drawing")
@@ -21,7 +23,19 @@ plt.ylabel("Distance")
 plt.plot(x,y,'m')
 plt.plot(x,y,'w+')
 
+# Annotations
+plt.annotate(xy=[2,1], s='Important point 1')
+plt.annotate(xy=[4,6], s='Important point 2')
+
+# Style the background
+plt.style.use('bmh')
 plt.plot(x,y)
+plt.plot(x,z)
+plt.plot(x,t)
+
+# Legend
+plt.legend(['Race1', 'Race2', 'Race3'], loc=0)
+
 # Save as pdf
 # plt.savefig('filename.pdf', format='pdf')
 

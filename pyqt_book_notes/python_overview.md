@@ -76,7 +76,29 @@ type(bird + beast) # unicode
 ```Python
 p = "pad"
 p[1] = "0" # WRONG
+p = "o".join((p[:1], p[2:])) # Good
+p = p[:1] + "o" + p[2:] # also good
 ```
+  - StringIO or (faster) cStringIO modules provide mutable string types. PyQt's QString is also mutable. 
+  
+- Useful string methods:
+  - string.find("item"): returns index position of leftmost occurrence of provided string. -1 is returned if absent.
+  - string.rfind("item"): same as find but right to left
+  - string.index("item"): identical usage but returns ValueError on failure. Matches other types like lists.
+  - string.rindex("item"): same as index but right to left
+  - string.title(): capitalizes the first letter of every word
+  - len("string"): length of the string
+  - x in s: true if string x is a substring of s
+  - x not in s
+  - s * i: "abc" * 3 = "abcabcabc"
+  - string.count("item")
+  - string.endswith("item")
+  - string.startswith("item")
+  - string.isalpha() / string.isdigit(): string is not empty and is all digits/letters
+  - string.join((x,...)): ":".join(("A", "BB", "CCC")) returns "A:BB:CCC"
+  - string.replace(x, y): returncs a copy of string with any occurrences of string x replaced by copies of string y
+  - string.split(",")
+  - string.strip(): removes leading and trailing whitespace. Can pass optional string to be removed.
   
 ## Slicing
 - negative numbers start at the end and work backwords
